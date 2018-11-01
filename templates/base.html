@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ostracode</title>
+    <link href="https://fonts.googleapis.com/css?family=Space+Mono:400,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/oc-layout.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/oc-typo.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/oc-header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/oc-banner.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/posts.css') }}">
+
+</head>
+<body>
+
+<div id="sideNav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="/"><span {% if request.path =='/' %}class="active"{% endif %}><span class="sidenav-text">home</span></span></a>
+    <a href="/posts"><span {% if request.path =='/posts/' or request.path =='/posts/*' %}class="active"{% endif %}><span class="sidenav-text">posts</span></span></a>
+    <a href="/about"><span {% if request.path =='/about' %}class="active"{% endif %}><span class="sidenav-text">about</span></span></a>
+    <a href="/contact"><span {% if request.path =='/contact' %}class="active"{% endif %}><span class="sidenav-text">contact</span></span></a>
+</div>
+
+
+<div id="main">
+    <header id="header" class="oc-header">
+        <div class="oc-menubar" onclick="openNav()">&#9776;</div>
+        <div class="oc-logo">
+            <!--<image height="64px" src="{{ url_for('static', filename='images/nano-bw.svg') }}"/>-->
+            <a href="/"><h1 id="title" class="oc-title">+_+&nbsp;ostracode</h1></a>
+        </div>
+        <div class="oc-social" style="width: 72px"></div>
+
+
+    </header>
+
+
+    {% block content %} {% endblock content %}
+
+    <footer>
+        <span>© ostracode 2018 - All rights reserved.</span>
+    </footer>
+</div>
+
+<script>
+    function openNav() {
+        document.getElementById("sideNav").style.width = "100%";
+    }
+
+    function closeNav() {
+        document.getElementById("sideNav").style.width = "0";
+    }
+</script>
+<script>
+
+    var main = document.getElementById("main");
+    main.onscroll = function() { scrollFunction() };
+
+    function scrollFunction() {
+
+        console.log("scroll",main.scrollTop);
+
+        if (document.body.scrollTop > 80 || main.scrollTop > 30) {
+            document.getElementById("title").style.fontSize = "2rem";
+            document.getElementsByTagName("header")[0].classList.add("header-bb");
+            document.getElementsByTagName("header")[0].style.height = "80px";
+            //document.getElementsByTagName("header")[0].style.backgroundColor = "#282828";
+            //document.getElementsByTagName("header")[0].style.color = "#FFFFFF";
+            //document.getElementById("title").style.color = "#FFFFFF";
+            document.getElementById("article").style.marginTop = "80px";
+        } else {
+            document.getElementById("title").style.fontSize = "3rem";
+            document.getElementsByTagName("header")[0].classList.remove("header-bb");
+            document.getElementsByTagName("header")[0].style.height = "180px";
+            //document.getElementsByTagName("header")[0].style.backgroundColor = "#FFFFFF";
+            //document.getElementsByTagName("header")[0].style.color = "#282828";
+            //document.getElementById("title").style.color = "#282828";
+            document.getElementById("article").style.marginTop = "180px";
+        }
+
+        var winScroll = document.body.scrollTop || main.scrollTop;
+        var height = main.scrollHeight - main.clientHeight;
+        var scrolled = (winScroll / height) * 100;
+        console.info("height winScroll=", height, winScroll, scrolled);
+
+        // document.getElementById("header").style.width = scrolled + "%";
+
+        // var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        // var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        // var scrolled = (winScroll / height) * 100;
+    }
+
+</script>
+</body>
+</html>

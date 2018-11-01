@@ -1,0 +1,151 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    height: 180px;
+    /*padding: 90px 0;*/
+
+    overflow: hidden;
+    box-sizing: border-box;
+
+}
+a {
+    text-decoration: none;
+}
+a:hover {
+    outline: 0;
+}
+
+#main {
+    /*margin-top: 180px;*/
+    /*height: calc(100% - 180px);*/
+    overflow-y: auto;
+    height: 100%;
+    min-height: 100%;
+
+    display:flex;
+    flex-direction:column;
+}
+
+.header-bb {
+    /*-webkit-box-shadow: 0 0 10px 0 #000;*/
+    /*box-shadow: 0 0 10px 0 #000;*/
+    border-bottom: 1px solid #ccc;
+}
+
+.oc-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+
+.oc-header a {
+    text-decoration: none;
+    color: #010101;
+}
+
+footer {
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top:auto;
+}
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #282828;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    text-align:center;
+}
+.oc-post-full {
+    margin-top: 180px;
+    padding: 30px 7vw 0;
+}
+.oc-post-full {
+    text-align: center;
+    line-height: 1.5;
+}
+.oc-post-full h1, h2, h3, h4, h5, h6 {
+    text-transform: capitalize;
+}
+.oc-post-full p {
+    text-align: left;
+}
+.oc-post-full a {
+    color: #282828;
+
+    /*color: #911027;*/
+    /*color: #444444;*/
+    border-bottom: 3px solid #AAAAAA;
+    /*border-bottom-color: rgb(251, 216, 223);*/
+    -webkit-transition: all 0.35s cubic-bezier(.33,.66,.66,1);
+    transition: all 0.35s cubic-bezier(.33,.66,.66,1);
+
+}
+.oc-post-full a:hover {
+    font-weight: bold;
+
+    color: #ffffff;
+    border-bottom: 3px solid #cccccc;
+    background-color: #282828;
+    -webkit-transition: all 0.35s cubic-bezier(.33,.66,.66,1);
+    transition: all 0.35s cubic-bezier(.33,.66,.66,1);
+
+}
+ol, ul {
+    text-align: left;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+/*.progress-container {*/
+    /*width: 100%;*/
+    /*height: 8px;*/
+    /*background: #ccc;*/
+/*}*/
+
+/*.progress-bar {*/
+    /*height: 8px;*/
+    /*background: #4caf50;*/
+    /*width: 0%;*/
+/*}*/
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (max-width: 767px) {
+    body {
+        font-size: .8rem !important;
+        line-height: 1rem !important;
+    }
+    h1 {
+        font-size: 2rem !important;
+        line-height: 2.5rem !important;
+    }
+}

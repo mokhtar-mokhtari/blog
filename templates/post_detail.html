@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<article id="article" class="oc-post-full">
+    <p><a href="/posts/">&larr; Return</a></p>
+    <span>+ {{ date.strftime('%d/%m/%Y')}} +</span>
+    {{ text }}
+
+    <p><a href="/posts/">&larr; Return</a></p>
+</article>
+{% endblock content %}

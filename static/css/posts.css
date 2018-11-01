@@ -1,0 +1,43 @@
+
+
+.oc-posts-list {
+    /*padding-left: 15px;*/
+    padding-bottom: 20px;
+
+}
+.oc-posts-list a {
+    font-size: 2rem;
+    line-height: 2rem;
+    text-transform: capitalize;
+    text-decoration: none;
+    color: #282828;
+}
+.oc-posts-list p {
+    margin: 5px 0;
+}
+.oc-posts-list h2 {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.oc-posts-date {
+    font-size: .8rem;
+}
+.oc-posts-list a  h2 {
+
+    display: inline-block;
+    box-sizing: border-box;
+    border-bottom: 3px solid #ffffff;
+    -webkit-transition: all 0.35s cubic-bezier(.33,.66,.66,1);
+    transition: all 0.35s cubic-bezier(.33,.66,.66,1);
+
+}
+
+.oc-posts-list a:hover h2 {
+
+
+    border-bottom: 3px solid #cccccc;
+    -webkit-transition: all 0.35s cubic-bezier(.33,.66,.66,1);
+    transition: all 0.35s cubic-bezier(.33,.66,.66,1);
+
+}

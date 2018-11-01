@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+     p a {
+
+        color: #444444;
+        border-bottom: 3px solid #AAAAAA;
+        -webkit-transition: all 0.35s cubic-bezier(.33,.66,.66,1);
+        transition: all 0.35s cubic-bezier(.33,.66,.66,1);
+    }
+     p a:hover {
+         color: #ffffff;
+         border-bottom: 3px solid #cccccc;
+         background-color: #282828;
+         -webkit-transition: all 0.35s cubic-bezier(.33,.66,.66,1);
+         transition: all 0.35s cubic-bezier(.33,.66,.66,1);
+
+     }
+</style>
+<section style="margin-top: 180px; text-align: center;">
+
+<h1>
+    (^_^)
+    No page found!
+</h1>
+
+    <p><a href="/posts/">&larr; Return to Home</a></p>
+</section>
+{% endblock content %}
