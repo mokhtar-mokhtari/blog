@@ -2,38 +2,26 @@ import datetime
 import os
 import markdown
 from bs4 import BeautifulSoup
-from flask import Flask, render_template, redirect, url_for, abort, Blueprint
+from flask import Flask, render_template, redirect, url_for, abort
 from markupsafe import Markup
 
-#app = Flask(__name__)
+app = Flask(__name__)
 
 
 BASE_DIR_DATA = os.path.join(os.path.dirname(os.path.abspath(__file__)) + '/data/')
 
 
-
-# from flask import (
-#     Blueprint, flash, g, redirect, render_template, request, url_for
-# )
-# from werkzeug.exceptions import abort
-#
-# from flaskr.auth import login_required
-# from flaskr.db import get_db
-
-bp = Blueprint('blog', __name__)
-
-
-@bp.route('/home')
+@app.route('/home')
 def home():
     return redirect(url_for('index'))
 
 
-@bp.route('/')
+@app.route('/')
 def index():
     return render_template('index.html')
 
 
-@bp.route('/posts/')
+@app.route('/posts/')
 def posts():
     posts = []
 
@@ -60,7 +48,7 @@ def posts():
     return render_template('posts.html', posts=posts)
 
 
-@bp.route('/posts/<title>')
+@app.route('/posts/<title>')
 def post_detail(title=None):
     filename = 'data/' + title + '.md'
     try:
@@ -78,20 +66,20 @@ def post_detail(title=None):
     return render_template('post_detail.html', text=post_detail, date=date)
 
 
-@bp.route('/about')
+@app.route('/about')
 def about():
     return render_template('about.html')
 
 
-@bp.route('/contact')
+@app.route('/contact')
 def contact():
     return render_template('contact.html')
 
 
-@bp.errorhandler(404)
+@app.errorhandler(404)
 def page_not_found(error):
     return render_template('404.html'), 404
 
 
-# if __name__ == '__main__':
-#     app.run()
+if __name__ == '__main__':
+    app.run()
